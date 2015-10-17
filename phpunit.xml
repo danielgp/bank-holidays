@@ -44,7 +44,7 @@ THE SOFTWARE.
         verbose="false">
     <testsuites>
         <testsuite name="BankHolidaysTest">
-            <directory>/path/to/*Test.php files</directory>
+            <file>tests/php-unit/RomanianTest.php</file>
         </testsuite>
     </testsuites>
     <filter>
