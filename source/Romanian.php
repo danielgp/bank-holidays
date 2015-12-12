@@ -50,10 +50,14 @@ trait Romanian
      * @param boolean $includeCatholicEaster
      * @return array
      */
-    protected function setHolidays($lngDate, $includeCatholicEaster = false)
+    protected function setHolidays($lngDate, $includeCatholicEaster = false, $inclWorkingHolidays = false)
     {
-        $yr     = date('Y', $lngDate);
-        $daying = $this->setHolidaysFixed($lngDate);
+        $yr       = date('Y', $lngDate);
+        $daying   = [];
+        $daying[] = $this->setHolidaysFixed($lngDate);
+        if ($inclWorkingHolidays) {
+            $daying = $this->setHolidaysFixedButWorking($lngDate);
+        }
         if ($includeCatholicEaster) {
             // Catholic easter is already known by PHP
             $firstEasterDate = strtotime($this->getEasterDatetime($yr)->format('Y-m-d'));
@@ -91,10 +95,7 @@ trait Romanian
         $yr        = date('Y', $lngDate);
         $daying [] = mktime(0, 0, 0, 1, 1, $yr); // Happy New Year
         $daying[]  = mktime(0, 0, 0, 1, 2, $yr); // recovering from New Year party
-        if ($yr >= 2015) {
-            $daying[] = mktime(0, 0, 0, 1, 24, $yr); // Unirea Principatelor Romane
-        }
-        $daying[] = mktime(0, 0, 0, 5, 1, $yr); // May 1st
+        $daying[]  = mktime(0, 0, 0, 5, 1, $yr); // May 1st
         if ($yr >= 2009) {
             $daying[] = mktime(0, 0, 0, 8, 15, $yr); // St. Marry
         }
@@ -104,6 +105,26 @@ trait Romanian
         $daying[]  = mktime(0, 0, 0, 12, 1, $yr); // Romanian National Day
         $daying [] = mktime(0, 0, 0, 12, 25, $yr); // December 25th
         $daying[]  = mktime(0, 0, 0, 12, 26, $yr); // December 26th
+        return $daying;
+    }
+
+    /**
+     * List of Romanian fixed holidays that are still working (weird ones)
+     * (where fixed means every single year occur on same day of the month)
+     *
+     * @param date $lngDate
+     * @return array
+     */
+    private function setHolidaysFixedButWorking($lngDate)
+    {
+        $daying = [];
+        $yr     = date('Y', $lngDate);
+        if ($yr >= 2015) {
+            $daying[] = mktime(0, 0, 0, 1, 24, $yr); // Unirea Principatelor Romane
+        }
+        if ($yr >= 2016) {
+            $daying[] = mktime(0, 0, 0, 2, 19, $yr); // Constantin Brancusi birthday
+        }
         return $daying;
     }
 
