@@ -53,17 +53,8 @@ trait Romanian
     protected function setHolidays($lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false)
     {
         $givenYear = date('Y', $lngDate);
-        $daying    = [];
-        if (($givenYear >= 2001) && ($givenYear <= 2005)) {
-            $daying = $this->setHolidaysEasterBetween2001and2005($lngDate);
-        } elseif (($givenYear >= 2006) && ($givenYear <= 2010)) {
-            $daying = $this->setHolidaysEasterBetween2006and2010($lngDate);
-        } elseif (($givenYear >= 2011) && ($givenYear <= 2015)) {
-            $daying = $this->setHolidaysEasterBetween2011and2015($lngDate);
-        } elseif (($givenYear >= 2016) && ($givenYear <= 2020)) {
-            $daying = $this->setHolidaysEasterBetween2016and2020($lngDate);
-        }
-        $daying = array_merge($daying, $this->setHolidaysFixed($lngDate));
+        $daying    = $this->setHolidaysEasterBetween2001and2020($lngDate);
+        $daying    = array_merge($daying, $this->setHolidaysFixed($lngDate));
         if ($inclWorkingHolidays) {
             $daying = array_merge($daying, $this->setHolidaysFixedButWorking($lngDate));
         }
@@ -130,7 +121,7 @@ trait Romanian
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysEasterBetween2001and2005($lngDate)
+    private function setHolidaysEasterBetween2001and2020($lngDate)
     {
         $givenYear        = date('Y', $lngDate);
         $variableHolidays = [
@@ -154,24 +145,6 @@ trait Romanian
                 mktime(0, 0, 0, 5, 1, $givenYear),
                 mktime(0, 0, 0, 5, 2, $givenYear),
             ],
-        ];
-        $daying           = [];
-        if (array_key_exists($givenYear, $variableHolidays)) {
-            $daying = $variableHolidays[$givenYear];
-        }
-        return $daying;
-    }
-
-    /**
-     * List of all Orthodox holidays between 2006 and 2010
-     *
-     * @param date $lngDate
-     * @return array
-     */
-    private function setHolidaysEasterBetween2006and2010($lngDate)
-    {
-        $givenYear        = date('Y', $lngDate);
-        $variableHolidays = [
             2006 => [
                 mktime(0, 0, 0, 4, 23, $givenYear),
                 mktime(0, 0, 0, 4, 24, $givenYear),
@@ -196,24 +169,6 @@ trait Romanian
                 mktime(0, 0, 0, 5, 23, $givenYear),
                 mktime(0, 0, 0, 5, 24, $givenYear),
             ],
-        ];
-        $daying           = [];
-        if (array_key_exists($givenYear, $variableHolidays)) {
-            $daying = $variableHolidays[$givenYear];
-        }
-        return $daying;
-    }
-
-    /**
-     * List of all Orthodox holidays between 2011 and 2015
-     *
-     * @param date $lngDate
-     * @return array
-     */
-    private function setHolidaysEasterBetween2011and2015($lngDate)
-    {
-        $givenYear        = date('Y', $lngDate);
-        $variableHolidays = [
             2011 => [
                 mktime(0, 0, 0, 4, 24, $givenYear),
                 mktime(0, 0, 0, 4, 25, $givenYear),
@@ -243,25 +198,7 @@ trait Romanian
                 mktime(0, 0, 0, 4, 13, $givenYear),
                 mktime(0, 0, 0, 5, 31, $givenYear),
                 mktime(0, 0, 0, 6, 1, $givenYear),
-            ]
-        ];
-        $daying           = [];
-        if (array_key_exists($givenYear, $variableHolidays)) {
-            $daying = $variableHolidays[$givenYear];
-        }
-        return $daying;
-    }
-
-    /**
-     * List of all Orthodox holidays between 2016 and 2020
-     *
-     * @param date $lngDate
-     * @return array
-     */
-    private function setHolidaysEasterBetween2016and2020($lngDate)
-    {
-        $givenYear        = date('Y', $lngDate);
-        $variableHolidays = [
+            ],
             2016 => [
                 mktime(0, 0, 0, 5, 1, $givenYear),
                 mktime(0, 0, 0, 5, 2, $givenYear),
@@ -304,12 +241,12 @@ trait Romanian
      * returns bank holidays in a given month
      *
      * @param date $lngDate
-     * @param boolean $includeCatholicEaster
+     * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setHolidaysInMonth($lngDate, $includeCatholicEaster = false)
+    protected function setHolidaysInMonth($lngDate, $inclCatholicEaster = false)
     {
-        $holidaysInGivenYear = $this->setHolidays($lngDate, $includeCatholicEaster);
+        $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $holidays            = 0;
         foreach ($thisMonthDayArray as $value) {
@@ -332,12 +269,12 @@ trait Romanian
      * returns working days in a given month
      *
      * @param date $lngDate
-     * @param boolean $includeCatholicEaster
+     * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setWorkingDaysInMonth($lngDate, $includeCatholicEaster = false)
+    protected function setWorkingDaysInMonth($lngDate, $inclCatholicEaster = false)
     {
-        $holidaysInGivenYear = $this->setHolidays($lngDate, $includeCatholicEaster);
+        $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $workingDays         = 0;
         foreach ($thisMonthDayArray as $value) {
