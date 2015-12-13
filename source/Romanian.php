@@ -53,7 +53,8 @@ trait Romanian
     protected function setHolidays($lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false)
     {
         $givenYear = date('Y', $lngDate);
-        $daying    = $this->setHolidaysEasterBetween2001and2020($lngDate);
+        $daying    = $this->setHolidaysEasterBetween2001and2010($lngDate);
+        $daying    = array_merge($daying, $this->setHolidaysEasterBetween2011and2020($lngDate));
         $daying    = array_merge($daying, $this->setHolidaysFixed($lngDate));
         if ($inclWorkingHolidays) {
             $daying = array_merge($daying, $this->setHolidaysFixedButWorking($lngDate));
@@ -116,123 +117,145 @@ trait Romanian
     }
 
     /**
-     * List of all Orthodox holidays between 2001 and 2005
+     * List of all Orthodox holidays between 2001 and 2010
      *
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysEasterBetween2001and2020($lngDate)
+    private function setHolidaysEasterBetween2001and2010($lngDate)
     {
-        $givenYear        = date('Y', $lngDate);
-        $variableHolidays = [
-            2001 => [
-                mktime(0, 0, 0, 4, 2, $givenYear),
-                mktime(0, 0, 0, 4, 3, $givenYear),
-            ],
-            2002 => [
-                mktime(0, 0, 0, 4, 22, $givenYear),
-                mktime(0, 0, 0, 4, 23, $givenYear),
-            ],
-            2003 => [
-                mktime(0, 0, 0, 4, 20, $givenYear),
-                mktime(0, 0, 0, 4, 21, $givenYear),
-            ],
-            2004 => [
-                mktime(0, 0, 0, 3, 10, $givenYear),
-                mktime(0, 0, 0, 3, 11, $givenYear),
-            ],
-            2005 => [
-                mktime(0, 0, 0, 5, 1, $givenYear),
-                mktime(0, 0, 0, 5, 2, $givenYear),
-            ],
-            2006 => [
-                mktime(0, 0, 0, 4, 23, $givenYear),
-                mktime(0, 0, 0, 4, 24, $givenYear),
-            ],
-            2007 => [
-                mktime(0, 0, 0, 4, 8, $givenYear),
-                mktime(0, 0, 0, 4, 9, $givenYear),
-            ],
-            2008 => [
-                mktime(0, 0, 0, 4, 27, $givenYear),
-                mktime(0, 0, 0, 4, 28, $givenYear),
-            ],
-            2009 => [
-                mktime(0, 0, 0, 4, 19, $givenYear),
-                mktime(0, 0, 0, 4, 20, $givenYear),
-                mktime(0, 0, 0, 6, 7, $givenYear),
-                mktime(0, 0, 0, 6, 8, $givenYear),
-            ],
-            2010 => [
-                mktime(0, 0, 0, 4, 4, $givenYear),
-                mktime(0, 0, 0, 4, 5, $givenYear),
-                mktime(0, 0, 0, 5, 23, $givenYear),
-                mktime(0, 0, 0, 5, 24, $givenYear),
-            ],
-            2011 => [
-                mktime(0, 0, 0, 4, 24, $givenYear),
-                mktime(0, 0, 0, 4, 25, $givenYear),
-                mktime(0, 0, 0, 6, 12, $givenYear),
-                mktime(0, 0, 0, 6, 13, $givenYear),
-            ],
-            2012 => [
-                mktime(0, 0, 0, 4, 15, $givenYear),
-                mktime(0, 0, 0, 4, 16, $givenYear),
-                mktime(0, 0, 0, 6, 3, $givenYear),
-                mktime(0, 0, 0, 6, 4, $givenYear),
-            ],
-            2013 => [
-                mktime(0, 0, 0, 5, 6, $givenYear),
-                mktime(0, 0, 0, 5, 6, $givenYear),
-                mktime(0, 0, 0, 6, 23, $givenYear),
-                mktime(0, 0, 0, 6, 24, $givenYear),
-            ],
-            2014 => [
-                mktime(0, 0, 0, 4, 20, $givenYear),
-                mktime(0, 0, 0, 4, 21, $givenYear),
-                mktime(0, 0, 0, 6, 8, $givenYear),
-                mktime(0, 0, 0, 6, 9, $givenYear),
-            ],
-            2015 => [
-                mktime(0, 0, 0, 4, 12, $givenYear),
-                mktime(0, 0, 0, 4, 13, $givenYear),
-                mktime(0, 0, 0, 5, 31, $givenYear),
-                mktime(0, 0, 0, 6, 1, $givenYear),
-            ],
-            2016 => [
-                mktime(0, 0, 0, 5, 1, $givenYear),
-                mktime(0, 0, 0, 5, 2, $givenYear),
-                mktime(0, 0, 0, 6, 19, $givenYear),
-                mktime(0, 0, 0, 6, 20, $givenYear),
-            ],
-            2017 => [
-                mktime(0, 0, 0, 4, 16, $givenYear),
-                mktime(0, 0, 0, 4, 17, $givenYear),
-                mktime(0, 0, 0, 6, 4, $givenYear),
-                mktime(0, 0, 0, 6, 5, $givenYear),
-            ],
-            2018 => [
-                mktime(0, 0, 0, 4, 8, $givenYear),
-                mktime(0, 0, 0, 4, 9, $givenYear),
-                mktime(0, 0, 0, 5, 27, $givenYear),
-                mktime(0, 0, 0, 5, 28, $givenYear),
-            ],
-            2019 => [
-                mktime(0, 0, 0, 4, 28, $givenYear),
-                mktime(0, 0, 0, 4, 29, $givenYear),
-                mktime(0, 0, 0, 6, 16, $givenYear),
-                mktime(0, 0, 0, 6, 17, $givenYear),
-            ],
-            2020 => [
-                mktime(0, 0, 0, 4, 19, $givenYear),
-                mktime(0, 0, 0, 4, 20, $givenYear),
-                mktime(0, 0, 0, 6, 7, $givenYear),
-                mktime(0, 0, 0, 6, 8, $givenYear),
-            ]
-        ];
-        $daying           = [];
-        if (array_key_exists($givenYear, $variableHolidays)) {
-            $daying = $variableHolidays[$givenYear];
+        $givenYear = date('Y', $lngDate);
+        $daying    = [];
+        if (($givenYear >= 2001) || ($givenYear <= 2010)) {
+            $variableHolidays = [
+                2001 => [
+                    mktime(0, 0, 0, 4, 2, $givenYear),
+                    mktime(0, 0, 0, 4, 3, $givenYear),
+                ],
+                2002 => [
+                    mktime(0, 0, 0, 4, 22, $givenYear),
+                    mktime(0, 0, 0, 4, 23, $givenYear),
+                ],
+                2003 => [
+                    mktime(0, 0, 0, 4, 20, $givenYear),
+                    mktime(0, 0, 0, 4, 21, $givenYear),
+                ],
+                2004 => [
+                    mktime(0, 0, 0, 3, 10, $givenYear),
+                    mktime(0, 0, 0, 3, 11, $givenYear),
+                ],
+                2005 => [
+                    mktime(0, 0, 0, 5, 1, $givenYear),
+                    mktime(0, 0, 0, 5, 2, $givenYear),
+                ],
+                2006 => [
+                    mktime(0, 0, 0, 4, 23, $givenYear),
+                    mktime(0, 0, 0, 4, 24, $givenYear),
+                ],
+                2007 => [
+                    mktime(0, 0, 0, 4, 8, $givenYear),
+                    mktime(0, 0, 0, 4, 9, $givenYear),
+                ],
+                2008 => [
+                    mktime(0, 0, 0, 4, 27, $givenYear),
+                    mktime(0, 0, 0, 4, 28, $givenYear),
+                ],
+                2009 => [
+                    mktime(0, 0, 0, 4, 19, $givenYear),
+                    mktime(0, 0, 0, 4, 20, $givenYear),
+                    mktime(0, 0, 0, 6, 7, $givenYear),
+                    mktime(0, 0, 0, 6, 8, $givenYear),
+                ],
+                2010 => [
+                    mktime(0, 0, 0, 4, 4, $givenYear),
+                    mktime(0, 0, 0, 4, 5, $givenYear),
+                    mktime(0, 0, 0, 5, 23, $givenYear),
+                    mktime(0, 0, 0, 5, 24, $givenYear),
+                ],
+            ];
+            if (array_key_exists($givenYear, $variableHolidays)) {
+                $daying = $variableHolidays[$givenYear];
+            }
+        }
+        return $daying;
+    }
+
+    /**
+     * List of all Orthodox holidays between 2011 and 2020
+     *
+     * @param date $lngDate
+     * @return array
+     */
+    private function setHolidaysEasterBetween2011and2020($lngDate)
+    {
+        $givenYear = date('Y', $lngDate);
+        $daying    = [];
+        if (($givenYear >= 2011) || ($givenYear <= 2020)) {
+            $variableHolidays = [
+                2011 => [
+                    mktime(0, 0, 0, 4, 24, $givenYear),
+                    mktime(0, 0, 0, 4, 25, $givenYear),
+                    mktime(0, 0, 0, 6, 12, $givenYear),
+                    mktime(0, 0, 0, 6, 13, $givenYear),
+                ],
+                2012 => [
+                    mktime(0, 0, 0, 4, 15, $givenYear),
+                    mktime(0, 0, 0, 4, 16, $givenYear),
+                    mktime(0, 0, 0, 6, 3, $givenYear),
+                    mktime(0, 0, 0, 6, 4, $givenYear),
+                ],
+                2013 => [
+                    mktime(0, 0, 0, 5, 6, $givenYear),
+                    mktime(0, 0, 0, 5, 6, $givenYear),
+                    mktime(0, 0, 0, 6, 23, $givenYear),
+                    mktime(0, 0, 0, 6, 24, $givenYear),
+                ],
+                2014 => [
+                    mktime(0, 0, 0, 4, 20, $givenYear),
+                    mktime(0, 0, 0, 4, 21, $givenYear),
+                    mktime(0, 0, 0, 6, 8, $givenYear),
+                    mktime(0, 0, 0, 6, 9, $givenYear),
+                ],
+                2015 => [
+                    mktime(0, 0, 0, 4, 12, $givenYear),
+                    mktime(0, 0, 0, 4, 13, $givenYear),
+                    mktime(0, 0, 0, 5, 31, $givenYear),
+                    mktime(0, 0, 0, 6, 1, $givenYear),
+                ],
+                2016 => [
+                    mktime(0, 0, 0, 5, 1, $givenYear),
+                    mktime(0, 0, 0, 5, 2, $givenYear),
+                    mktime(0, 0, 0, 6, 19, $givenYear),
+                    mktime(0, 0, 0, 6, 20, $givenYear),
+                ],
+                2017 => [
+                    mktime(0, 0, 0, 4, 16, $givenYear),
+                    mktime(0, 0, 0, 4, 17, $givenYear),
+                    mktime(0, 0, 0, 6, 4, $givenYear),
+                    mktime(0, 0, 0, 6, 5, $givenYear),
+                ],
+                2018 => [
+                    mktime(0, 0, 0, 4, 8, $givenYear),
+                    mktime(0, 0, 0, 4, 9, $givenYear),
+                    mktime(0, 0, 0, 5, 27, $givenYear),
+                    mktime(0, 0, 0, 5, 28, $givenYear),
+                ],
+                2019 => [
+                    mktime(0, 0, 0, 4, 28, $givenYear),
+                    mktime(0, 0, 0, 4, 29, $givenYear),
+                    mktime(0, 0, 0, 6, 16, $givenYear),
+                    mktime(0, 0, 0, 6, 17, $givenYear),
+                ],
+                2020 => [
+                    mktime(0, 0, 0, 4, 19, $givenYear),
+                    mktime(0, 0, 0, 4, 20, $givenYear),
+                    mktime(0, 0, 0, 6, 7, $givenYear),
+                    mktime(0, 0, 0, 6, 8, $givenYear),
+                ],
+            ];
+            if (array_key_exists($givenYear, $variableHolidays)) {
+                $daying = $variableHolidays[$givenYear];
+            }
         }
         return $daying;
     }
