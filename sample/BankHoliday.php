@@ -46,7 +46,7 @@ class BankHoliday
             echo '<li>' . $value . ' --- ' . date('l, d F Y', $value) . '</li>';
         }
         echo '</ul>';
-        echo '<p>For the month of ' . date('', $todaysDate) . ' the number of working days is: '
+        echo '<p>For the month of ' . date('M Y', $todaysDate) . ' the number of working days is: '
         . $this->setWorkingDaysInMonth($todaysDate) . '<p>';
     }
 }
