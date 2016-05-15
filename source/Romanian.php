@@ -36,11 +36,18 @@ namespace danielgp\bank_holidays;
 trait Romanian
 {
 
-    private function getEasterDatetime($year)
-    {
+    private function getEasterDatetime($year) {
         $base = new \DateTime("$year-03-21");
         $days = easter_days($year);
         return $base->add(new \DateInterval("P{$days}D"));
+    }
+
+    private function readTypeFromJsonFile($fileBaseName) {
+        $fName       = __DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . $fileBaseName . '.min.json';
+        $fJson       = fopen($fName, 'r');
+        $jSonContent = fread($fJson, filesize($fName));
+        fclose($fJson);
+        return json_decode($jSonContent, true);
     }
 
     /**
@@ -50,12 +57,9 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return array
      */
-    protected function setHolidays($lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false)
-    {
+    protected function setHolidays($lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false) {
         $givenYear = date('Y', $lngDate);
-        $daying    = $this->setHolidaysEasterBetween2001and2010($lngDate);
-        $daying    = array_merge($daying, $this->setHolidaysEasterBetween2011and2020($lngDate));
-        $daying    = array_merge($daying, $this->setHolidaysFixed($lngDate));
+        $daying    = array_merge($this->setHolidaysOrthodoxEaster($lngDate), $this->setHolidaysFixed($lngDate));
         if ($inclWorkingHolidays) {
             $daying = array_merge($daying, $this->setHolidaysFixedButWorking($lngDate));
         }
@@ -78,8 +82,7 @@ trait Romanian
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysFixed($lngDate)
-    {
+    private function setHolidaysFixed($lngDate) {
         $givenYear = date('Y', $lngDate);
         $daying[]  = mktime(0, 0, 0, 1, 1, $givenYear); // Happy New Year
         $daying[]  = mktime(0, 0, 0, 1, 2, $givenYear); // recovering from New Year party
@@ -103,8 +106,7 @@ trait Romanian
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysFixedButWorking($lngDate)
-    {
+    private function setHolidaysFixedButWorking($lngDate) {
         $daying    = [];
         $givenYear = date('Y', $lngDate);
         if ($givenYear >= 2015) {
@@ -117,144 +119,18 @@ trait Romanian
     }
 
     /**
-     * List of all Orthodox holidays between 2001 and 2010
-     *
-     * @param date $lngDate
-     * @return array
-     */
-    private function setHolidaysEasterBetween2001and2010($lngDate)
-    {
-        $givenYear = date('Y', $lngDate);
-        $daying    = [];
-        if (($givenYear >= 2001) || ($givenYear <= 2010)) {
-            $variableHolidays = [
-                2001 => [
-                    mktime(0, 0, 0, 4, 2, $givenYear),
-                    mktime(0, 0, 0, 4, 3, $givenYear),
-                ],
-                2002 => [
-                    mktime(0, 0, 0, 4, 22, $givenYear),
-                    mktime(0, 0, 0, 4, 23, $givenYear),
-                ],
-                2003 => [
-                    mktime(0, 0, 0, 4, 20, $givenYear),
-                    mktime(0, 0, 0, 4, 21, $givenYear),
-                ],
-                2004 => [
-                    mktime(0, 0, 0, 3, 10, $givenYear),
-                    mktime(0, 0, 0, 3, 11, $givenYear),
-                ],
-                2005 => [
-                    mktime(0, 0, 0, 5, 1, $givenYear),
-                    mktime(0, 0, 0, 5, 2, $givenYear),
-                ],
-                2006 => [
-                    mktime(0, 0, 0, 4, 23, $givenYear),
-                    mktime(0, 0, 0, 4, 24, $givenYear),
-                ],
-                2007 => [
-                    mktime(0, 0, 0, 4, 8, $givenYear),
-                    mktime(0, 0, 0, 4, 9, $givenYear),
-                ],
-                2008 => [
-                    mktime(0, 0, 0, 4, 27, $givenYear),
-                    mktime(0, 0, 0, 4, 28, $givenYear),
-                ],
-                2009 => [
-                    mktime(0, 0, 0, 4, 19, $givenYear),
-                    mktime(0, 0, 0, 4, 20, $givenYear),
-                    mktime(0, 0, 0, 6, 7, $givenYear),
-                    mktime(0, 0, 0, 6, 8, $givenYear),
-                ],
-                2010 => [
-                    mktime(0, 0, 0, 4, 4, $givenYear),
-                    mktime(0, 0, 0, 4, 5, $givenYear),
-                    mktime(0, 0, 0, 5, 23, $givenYear),
-                    mktime(0, 0, 0, 5, 24, $givenYear),
-                ],
-            ];
-            if (array_key_exists($givenYear, $variableHolidays)) {
-                $daying = $variableHolidays[$givenYear];
-            }
-        }
-        return $daying;
-    }
-
-    /**
      * List of all Orthodox holidays between 2011 and 2020
      *
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysEasterBetween2011and2020($lngDate)
-    {
-        $givenYear = date('Y', $lngDate);
-        $daying    = [];
-        if (($givenYear >= 2011) || ($givenYear <= 2020)) {
-            $variableHolidays = [
-                2011 => [
-                    mktime(0, 0, 0, 4, 24, $givenYear),
-                    mktime(0, 0, 0, 4, 25, $givenYear),
-                    mktime(0, 0, 0, 6, 12, $givenYear),
-                    mktime(0, 0, 0, 6, 13, $givenYear),
-                ],
-                2012 => [
-                    mktime(0, 0, 0, 4, 15, $givenYear),
-                    mktime(0, 0, 0, 4, 16, $givenYear),
-                    mktime(0, 0, 0, 6, 3, $givenYear),
-                    mktime(0, 0, 0, 6, 4, $givenYear),
-                ],
-                2013 => [
-                    mktime(0, 0, 0, 5, 6, $givenYear),
-                    mktime(0, 0, 0, 5, 6, $givenYear),
-                    mktime(0, 0, 0, 6, 23, $givenYear),
-                    mktime(0, 0, 0, 6, 24, $givenYear),
-                ],
-                2014 => [
-                    mktime(0, 0, 0, 4, 20, $givenYear),
-                    mktime(0, 0, 0, 4, 21, $givenYear),
-                    mktime(0, 0, 0, 6, 8, $givenYear),
-                    mktime(0, 0, 0, 6, 9, $givenYear),
-                ],
-                2015 => [
-                    mktime(0, 0, 0, 4, 12, $givenYear),
-                    mktime(0, 0, 0, 4, 13, $givenYear),
-                    mktime(0, 0, 0, 5, 31, $givenYear),
-                    mktime(0, 0, 0, 6, 1, $givenYear),
-                ],
-                2016 => [
-                    mktime(0, 0, 0, 5, 1, $givenYear),
-                    mktime(0, 0, 0, 5, 2, $givenYear),
-                    mktime(0, 0, 0, 6, 19, $givenYear),
-                    mktime(0, 0, 0, 6, 20, $givenYear),
-                ],
-                2017 => [
-                    mktime(0, 0, 0, 4, 16, $givenYear),
-                    mktime(0, 0, 0, 4, 17, $givenYear),
-                    mktime(0, 0, 0, 6, 4, $givenYear),
-                    mktime(0, 0, 0, 6, 5, $givenYear),
-                ],
-                2018 => [
-                    mktime(0, 0, 0, 4, 8, $givenYear),
-                    mktime(0, 0, 0, 4, 9, $givenYear),
-                    mktime(0, 0, 0, 5, 27, $givenYear),
-                    mktime(0, 0, 0, 5, 28, $givenYear),
-                ],
-                2019 => [
-                    mktime(0, 0, 0, 4, 28, $givenYear),
-                    mktime(0, 0, 0, 4, 29, $givenYear),
-                    mktime(0, 0, 0, 6, 16, $givenYear),
-                    mktime(0, 0, 0, 6, 17, $givenYear),
-                ],
-                2020 => [
-                    mktime(0, 0, 0, 4, 19, $givenYear),
-                    mktime(0, 0, 0, 4, 20, $givenYear),
-                    mktime(0, 0, 0, 6, 7, $givenYear),
-                    mktime(0, 0, 0, 6, 8, $givenYear),
-                ],
-            ];
-            if (array_key_exists($givenYear, $variableHolidays)) {
-                $daying = $variableHolidays[$givenYear];
+    private function setHolidaysOrthodoxEaster($lngDate) {
+        $givenYear      = date('Y', $lngDate);
+        $daying         = [];
+        $statmentsArray = $this->readTypeFromJsonFile('RomanianBankHolidays');
+        if (array_key_exists($givenYear, $statmentsArray)) {
+            foreach ($statmentsArray[$givenYear] as $value) {
+                $daying[] = strtotime($value);
             }
         }
         return $daying;
@@ -267,8 +143,7 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setHolidaysInMonth($lngDate, $inclCatholicEaster = false)
-    {
+    protected function setHolidaysInMonth($lngDate, $inclCatholicEaster = false) {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $holidays            = 0;
@@ -280,8 +155,7 @@ trait Romanian
         return $holidays;
     }
 
-    protected function setMonthAllDaysIntoArray($lngDate)
-    {
+    protected function setMonthAllDaysIntoArray($lngDate) {
         $firstDayGivenMonth  = strtotime('first day of', $lngDate);
         $lastDayInGivenMonth = strtotime('last day of', $lngDate);
         $secondsInOneDay     = 24 * 60 * 60;
@@ -295,8 +169,7 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setWorkingDaysInMonth($lngDate, $inclCatholicEaster = false)
-    {
+    protected function setWorkingDaysInMonth($lngDate, $inclCatholicEaster = false) {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $workingDays         = 0;
