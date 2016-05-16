@@ -36,12 +36,23 @@ namespace danielgp\bank_holidays;
 trait Romanian
 {
 
+    /**
+     *
+     * @param int $year
+     * @return type
+     */
     private function getEasterDatetime($year) {
         $base = new \DateTime("$year-03-21");
         $days = easter_days($year);
         return $base->add(new \DateInterval("P{$days}D"));
     }
 
+    /**
+     * returns an array with non-standard holidays from a JSON file
+     *
+     * @param string $fileBaseName
+     * @return mixed
+     */
     private function readTypeFromJsonFile($fileBaseName) {
         $fName       = __DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . $fileBaseName . '.min.json';
         $fJson       = fopen($fName, 'r');
@@ -53,7 +64,7 @@ trait Romanian
     /**
      * List of legal holidays
      *
-     * @param date $lngDate
+     * @param \DateTime $lngDate
      * @param boolean $inclCatholicEaster
      * @return array
      */
@@ -79,23 +90,26 @@ trait Romanian
      * List of all Romanian fixed holidays
      * (where fixed means every single year occur on same day of the month)
      *
-     * @param date $lngDate
+     * @param \DateTime $lngDate
      * @return array
      */
     private function setHolidaysFixed(\DateTime $lngDate) {
         $givenYear = $lngDate->format('Y');
-        $daying[]  = mktime(0, 0, 0, 1, 1, $givenYear); // Happy New Year
-        $daying[]  = mktime(0, 0, 0, 1, 2, $givenYear); // recovering from New Year party
-        $daying[]  = mktime(0, 0, 0, 5, 1, $givenYear); // May 1st
+        $daying    = [
+            mktime(0, 0, 0, 1, 1, $givenYear), // Happy New Year
+            mktime(0, 0, 0, 1, 2, $givenYear), // recovering from New Year party
+            mktime(0, 0, 0, 5, 1, $givenYear), // May 1st
+            mktime(0, 0, 0, 12, 1, $givenYear), // Romanian National Day
+            mktime(0, 0, 0, 12, 25, $givenYear), // Christmas Day
+            mktime(0, 0, 0, 12, 26, $givenYear), // Christmas 2nd Day
+        ];
         if ($givenYear >= 2009) {
             $daying[] = mktime(0, 0, 0, 8, 15, $givenYear); // St. Marry
         }
         if ($givenYear >= 2012) {
             $daying[] = mktime(0, 0, 0, 11, 30, $givenYear); // St. Andrew
         }
-        $daying[] = mktime(0, 0, 0, 12, 1, $givenYear); // Romanian National Day
-        $daying[] = mktime(0, 0, 0, 12, 25, $givenYear); // December 25th
-        $daying[] = mktime(0, 0, 0, 12, 26, $givenYear); // December 26th
+        sort($daying);
         return $daying;
     }
 
@@ -103,7 +117,7 @@ trait Romanian
      * List of Romanian fixed holidays that are still working (weird ones)
      * (where fixed means every single year occur on same day of the month)
      *
-     * @param date $lngDate
+     * @param \DateTime $lngDate
      * @return array
      */
     private function setHolidaysFixedButWorking(\DateTime $lngDate) {
@@ -121,7 +135,7 @@ trait Romanian
     /**
      * List of all Orthodox holidays and Pentecost
      *
-     * @param date $lngDate
+     * @param \DateTime $lngDate
      * @return array
      */
     private function setHolidaysOrthodoxEaster(\DateTime $lngDate) {
@@ -139,7 +153,7 @@ trait Romanian
     /**
      * returns bank holidays in a given month
      *
-     * @param date $lngDate
+     * @param \DateTime $lngDate
      * @param boolean $inclCatholicEaster
      * @return int
      */
@@ -155,6 +169,12 @@ trait Romanian
         return $holidays;
     }
 
+    /**
+     * return an array with all days within a month from a given date
+     *
+     * @param \DateTime $lngDate
+     * @return array
+     */
     protected function setMonthAllDaysIntoArray(\DateTime $lngDate) {
         $firstDayGivenMonth  = strtotime($lngDate->modify('first day of this month')->format('Y-m-d'));
         $lastDayInGivenMonth = strtotime($lngDate->modify('last day of this month')->format('Y-m-d'));
@@ -165,7 +185,7 @@ trait Romanian
     /**
      * returns working days in a given month
      *
-     * @param date $lngDate
+     * @param \DateTime $lngDate
      * @param boolean $inclCatholicEaster
      * @return int
      */
