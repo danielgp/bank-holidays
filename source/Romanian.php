@@ -82,7 +82,7 @@ trait Romanian
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysFixed($lngDate) {
+    private function setHolidaysFixed(\DateTime $lngDate) {
         $givenYear = $lngDate->format('Y');
         $daying[]  = mktime(0, 0, 0, 1, 1, $givenYear); // Happy New Year
         $daying[]  = mktime(0, 0, 0, 1, 2, $givenYear); // recovering from New Year party
@@ -106,7 +106,7 @@ trait Romanian
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysFixedButWorking($lngDate) {
+    private function setHolidaysFixedButWorking(\DateTime $lngDate) {
         $daying    = [];
         $givenYear = $lngDate->format('Y');
         if ($givenYear >= 2015) {
@@ -124,7 +124,7 @@ trait Romanian
      * @param date $lngDate
      * @return array
      */
-    private function setHolidaysOrthodoxEaster($lngDate) {
+    private function setHolidaysOrthodoxEaster(\DateTime $lngDate) {
         $givenYear      = $lngDate->format('Y');
         $daying         = [];
         $statmentsArray = $this->readTypeFromJsonFile('RomanianBankHolidays');
@@ -143,7 +143,7 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setHolidaysInMonth($lngDate, $inclCatholicEaster = false) {
+    protected function setHolidaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false) {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $holidays            = 0;
@@ -155,7 +155,7 @@ trait Romanian
         return $holidays;
     }
 
-    protected function setMonthAllDaysIntoArray($lngDate) {
+    protected function setMonthAllDaysIntoArray(\DateTime $lngDate) {
         $firstDayGivenMonth  = strtotime($lngDate->modify('first day of this month')->format('Y-m-d'));
         $lastDayInGivenMonth = strtotime($lngDate->modify('last day of this month')->format('Y-m-d'));
         $secondsInOneDay     = 24 * 60 * 60;
@@ -169,7 +169,7 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setWorkingDaysInMonth($lngDate, $inclCatholicEaster = false) {
+    protected function setWorkingDaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false) {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $workingDays         = 0;
