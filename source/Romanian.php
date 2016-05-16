@@ -57,8 +57,8 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return array
      */
-    protected function setHolidays($lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false) {
-        $givenYear = date('Y', $lngDate);
+    protected function setHolidays(\DateTime $lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false) {
+        $givenYear = $lngDate->format('Y');
         $daying    = array_merge($this->setHolidaysOrthodoxEaster($lngDate), $this->setHolidaysFixed($lngDate));
         if ($inclWorkingHolidays) {
             $daying = array_merge($daying, $this->setHolidaysFixedButWorking($lngDate));
@@ -83,7 +83,7 @@ trait Romanian
      * @return array
      */
     private function setHolidaysFixed($lngDate) {
-        $givenYear = date('Y', $lngDate);
+        $givenYear = $lngDate->format('Y');
         $daying[]  = mktime(0, 0, 0, 1, 1, $givenYear); // Happy New Year
         $daying[]  = mktime(0, 0, 0, 1, 2, $givenYear); // recovering from New Year party
         $daying[]  = mktime(0, 0, 0, 5, 1, $givenYear); // May 1st
@@ -108,7 +108,7 @@ trait Romanian
      */
     private function setHolidaysFixedButWorking($lngDate) {
         $daying    = [];
-        $givenYear = date('Y', $lngDate);
+        $givenYear = $lngDate->format('Y');
         if ($givenYear >= 2015) {
             $daying[] = mktime(0, 0, 0, 1, 24, $givenYear); // Unirea Principatelor Romane
         }
@@ -119,13 +119,13 @@ trait Romanian
     }
 
     /**
-     * List of all Orthodox holidays between 2011 and 2020
+     * List of all Orthodox holidays and Pentecost
      *
      * @param date $lngDate
      * @return array
      */
     private function setHolidaysOrthodoxEaster($lngDate) {
-        $givenYear      = date('Y', $lngDate);
+        $givenYear      = $lngDate->format('Y');
         $daying         = [];
         $statmentsArray = $this->readTypeFromJsonFile('RomanianBankHolidays');
         if (array_key_exists($givenYear, $statmentsArray)) {
@@ -156,8 +156,8 @@ trait Romanian
     }
 
     protected function setMonthAllDaysIntoArray($lngDate) {
-        $firstDayGivenMonth  = strtotime('first day of', $lngDate);
-        $lastDayInGivenMonth = strtotime('last day of', $lngDate);
+        $firstDayGivenMonth  = strtotime($lngDate->modify('first day of this month')->format('Y-m-d'));
+        $lastDayInGivenMonth = strtotime($lngDate->modify('last day of this month')->format('Y-m-d'));
         $secondsInOneDay     = 24 * 60 * 60;
         return range($firstDayGivenMonth, $lastDayInGivenMonth, $secondsInOneDay);
     }
