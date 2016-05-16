@@ -34,17 +34,21 @@ THE SOFTWARE.
         convertNoticesToExceptions="true"
         convertWarningsToExceptions="true"
         forceCoversAnnotation="false"
-        mapTestClassNameToCoveredClassName="true"
+        mapTestClassNameToCoveredClassName="false"
         processIsolation="false"
         stopOnError="false"
         stopOnFailure="false"
         stopOnIncomplete="false"
         stopOnSkipped="false"
         stopOnRisky="false"
+        timeoutForSmallTests="1"
+        timeoutForMediumTests="10"
+        timeoutForLargeTests="60"
         verbose="false">
     <testsuites>
-        <testsuite name="BankHolidaysTest">
-            <file>tests/php-unit/RomanianTest.php</file>
+        <testsuite name="RomanianTest">
+            <directory suffix="Test.php" phpVersion="5.6.0" phpVersionOperator=">=">tests/php-unit</directory>
+            <file phpVersion="5.6.0" phpVersionOperator=">=">tests/php-unit/RomanianTest.php</file>
         </testsuite>
     </testsuites>
     <filter>
@@ -53,8 +57,12 @@ THE SOFTWARE.
         </whitelist>
     </filter>
     <logging>
-        <log type="coverage-html" target="tests/php-unit/coverage.html" lowUpperBound="35" highLowerBound="70" />
+        <log type="coverage-html" target="tests/php-unit/coverage.html" lowUpperBound="35"
+       highLowerBound="70" />
         <log type="coverage-clover" target="tests/php-unit/coverage-clover.xml" />
+        <log type="json" target="tests/php-unit/coverage.json"/>
         <log type="junit" target="tests/php-unit/junit.xml" logIncompleteSkipped="false"/>
+        <log type="testdox-html" target="tests/php-unit/testdox.html"/>
+        <log type="testdox-text" target="tests/php-unit/testdox.txt"/>
     </logging>  
 </phpunit>
