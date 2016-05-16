@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Transformer-.
+ * Copyright 2015 Daniel Popiniuc
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,24 +29,23 @@ namespace danielgp\bank_holidays;
 /**
  * Description of BankHoliday
  *
- * @author Transformer-
+ * @author Daniel Popiniuc
  */
 class BankHoliday
 {
 
     use Romanian;
 
-    public function __construct()
-    {
-        $todaysDate       = strtotime('today');
+    public function __construct() {
+        $todaysDate       = new \DateTime('now');
         $thisYearHolidays = $this->setHolidays($todaysDate);
-        echo '<h1>For ' . daye('Y', $todaysDate) . ' the Romanian bank holidays are:</h1>'
+        echo '<h1>For ' . $todaysDate->format('Y') . ' the Romanian bank holidays are:</h1>'
         . '<ul>';
-        foreach ($thisYearHolidays as $key => $value) {
+        foreach ($thisYearHolidays as $value) {
             echo '<li>' . $value . ' --- ' . date('l, d F Y', $value) . '</li>';
         }
-        echo '</ul>';
-        echo '<p>For the month of ' . date('M Y', $todaysDate) . ' the number of working days is: '
+        echo '</ul>'
+        . '<p>For the month of ' . $todaysDate->format('M Y') . ' the number of working days is: '
         . $this->setWorkingDaysInMonth($todaysDate) . '<p>';
     }
 }
