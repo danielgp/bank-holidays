@@ -41,7 +41,8 @@ trait Romanian
      * @param int $year
      * @return type
      */
-    private function getEasterDatetime($year) {
+    private function getEasterDatetime($year)
+    {
         $base = new \DateTime("$year-03-21");
         $days = easter_days($year);
         return $base->add(new \DateInterval("P{$days}D"));
@@ -53,7 +54,8 @@ trait Romanian
      * @param string $fileBaseName
      * @return mixed
      */
-    private function readTypeFromJsonFile($fileBaseName) {
+    private function readTypeFromJsonFile($fileBaseName)
+    {
         $fName       = __DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . $fileBaseName . '.min.json';
         $fJson       = fopen($fName, 'r');
         $jSonContent = fread($fJson, filesize($fName));
@@ -68,7 +70,8 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return array
      */
-    protected function setHolidays(\DateTime $lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false) {
+    protected function setHolidays(\DateTime $lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false)
+    {
         $givenYear = $lngDate->format('Y');
         $daying    = array_merge($this->setHolidaysOrthodoxEaster($lngDate), $this->setHolidaysFixed($lngDate));
         if ($inclWorkingHolidays) {
@@ -93,7 +96,8 @@ trait Romanian
      * @param \DateTime $lngDate
      * @return array
      */
-    private function setHolidaysFixed(\DateTime $lngDate) {
+    private function setHolidaysFixed(\DateTime $lngDate)
+    {
         $givenYear = $lngDate->format('Y');
         $daying    = [
             mktime(0, 0, 0, 1, 1, $givenYear), // Happy New Year
@@ -120,7 +124,8 @@ trait Romanian
      * @param \DateTime $lngDate
      * @return array
      */
-    private function setHolidaysFixedButWorking(\DateTime $lngDate) {
+    private function setHolidaysFixedButWorking(\DateTime $lngDate)
+    {
         $daying    = [];
         $givenYear = $lngDate->format('Y');
         if ($givenYear >= 2015) {
@@ -138,7 +143,8 @@ trait Romanian
      * @param \DateTime $lngDate
      * @return array
      */
-    private function setHolidaysOrthodoxEaster(\DateTime $lngDate) {
+    private function setHolidaysOrthodoxEaster(\DateTime $lngDate)
+    {
         $givenYear      = $lngDate->format('Y');
         $daying         = [];
         $statmentsArray = $this->readTypeFromJsonFile('RomanianBankHolidays');
@@ -157,7 +163,8 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setHolidaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false) {
+    protected function setHolidaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false)
+    {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $holidays            = 0;
@@ -175,7 +182,8 @@ trait Romanian
      * @param \DateTime $lngDate
      * @return array
      */
-    protected function setMonthAllDaysIntoArray(\DateTime $lngDate) {
+    protected function setMonthAllDaysIntoArray(\DateTime $lngDate)
+    {
         $firstDayGivenMonth  = strtotime($lngDate->modify('first day of this month')->format('Y-m-d'));
         $lastDayInGivenMonth = strtotime($lngDate->modify('last day of this month')->format('Y-m-d'));
         $secondsInOneDay     = 24 * 60 * 60;
@@ -189,7 +197,8 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setWorkingDaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false) {
+    protected function setWorkingDaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false)
+    {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
         $workingDays         = 0;

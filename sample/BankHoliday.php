@@ -36,7 +36,8 @@ class BankHoliday
 
     use Romanian;
 
-    public function __construct() {
+    public function __construct()
+    {
         $todaysDate       = new \DateTime('now');
         $thisYearHolidays = $this->setHolidays($todaysDate);
         echo '<h1>For ' . $todaysDate->format('Y') . ' the Romanian bank holidays are:</h1>'
