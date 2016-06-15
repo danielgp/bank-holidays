@@ -1,0 +1,204 @@
+{
+    "event": "suiteStart",
+    "suite": "",
+    "tests": 15
+}{
+    "event": "suiteStart",
+    "suite": "RomanianTest",
+    "tests": 15
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysFixedButWorkingIncluded"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysFixedButWorkingIncluded",
+    "status": "pass",
+    "time": 0.042315006256104,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay",
+    "status": "pass",
+    "time": 0.028707027435303,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015CatholicEasterSecondDay"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015CatholicEasterSecondDay",
+    "status": "pass",
+    "time": 0.029628038406372,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015FirstDayOfYear"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015FirstDayOfYear",
+    "status": "pass",
+    "time": 0.029923915863037,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015LastDayOfYear"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015LastDayOfYear",
+    "status": "pass",
+    "time": 0.032903909683228,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015OrthodoxEasterFirstDay"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015OrthodoxEasterFirstDay",
+    "status": "pass",
+    "time": 0.044862985610962,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015OrthodoxEasterSecondDay"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysEaster2015OrthodoxEasterSecondDay",
+    "status": "pass",
+    "time": 0.079714059829712,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysInMonthForMonthWithCatholicEaster"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysInMonthForMonthWithCatholicEaster",
+    "status": "pass",
+    "time": 0.07178783416748,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysInMonthForMonthWithoutCatholicEaster"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testHolidaysInMonthForMonthWithoutCatholicEaster",
+    "status": "pass",
+    "time": 0.049942970275879,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf19Days"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf19Days",
+    "status": "pass",
+    "time": 0.032387971878052,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf20Days"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf20Days",
+    "status": "pass",
+    "time": 0.032477855682373,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf20DaysWithCatholicEaster"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf20DaysWithCatholicEaster",
+    "status": "pass",
+    "time": 0.087064027786255,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf21Days"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf21Days",
+    "status": "pass",
+    "time": 0.036534070968628,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf22Days"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf22Days",
+    "status": "pass",
+    "time": 0.039592027664185,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf23Days"
+}{
+    "event": "test",
+    "suite": "RomanianTest",
+    "test": "RomanianTest::testWorkingDaysInMonthForMonthOf23Days",
+    "status": "pass",
+    "time": 0.04862117767334,
+    "trace": [],
+    "message": "",
+    "output": ""
+}
