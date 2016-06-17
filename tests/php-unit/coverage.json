@@ -15,7 +15,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysFixedButWorkingIncluded",
     "status": "pass",
-    "time": 0.042315006256104,
+    "time": 0.038525104522705,
     "trace": [],
     "message": "",
     "output": ""
@@ -28,7 +28,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay",
     "status": "pass",
-    "time": 0.028707027435303,
+    "time": 0.029836893081665,
     "trace": [],
     "message": "",
     "output": ""
@@ -41,7 +41,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysEaster2015CatholicEasterSecondDay",
     "status": "pass",
-    "time": 0.029628038406372,
+    "time": 0.034965991973877,
     "trace": [],
     "message": "",
     "output": ""
@@ -54,7 +54,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysEaster2015FirstDayOfYear",
     "status": "pass",
-    "time": 0.029923915863037,
+    "time": 0.028487920761108,
     "trace": [],
     "message": "",
     "output": ""
@@ -67,7 +67,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysEaster2015LastDayOfYear",
     "status": "pass",
-    "time": 0.032903909683228,
+    "time": 0.031758069992065,
     "trace": [],
     "message": "",
     "output": ""
@@ -80,7 +80,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysEaster2015OrthodoxEasterFirstDay",
     "status": "pass",
-    "time": 0.044862985610962,
+    "time": 0.029614210128784,
     "trace": [],
     "message": "",
     "output": ""
@@ -93,7 +93,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysEaster2015OrthodoxEasterSecondDay",
     "status": "pass",
-    "time": 0.079714059829712,
+    "time": 0.092482089996338,
     "trace": [],
     "message": "",
     "output": ""
@@ -106,7 +106,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysInMonthForMonthWithCatholicEaster",
     "status": "pass",
-    "time": 0.07178783416748,
+    "time": 0.060998916625977,
     "trace": [],
     "message": "",
     "output": ""
@@ -119,7 +119,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testHolidaysInMonthForMonthWithoutCatholicEaster",
     "status": "pass",
-    "time": 0.049942970275879,
+    "time": 0.029999017715454,
     "trace": [],
     "message": "",
     "output": ""
@@ -132,7 +132,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testWorkingDaysInMonthForMonthOf19Days",
     "status": "pass",
-    "time": 0.032387971878052,
+    "time": 0.032793998718262,
     "trace": [],
     "message": "",
     "output": ""
@@ -145,7 +145,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testWorkingDaysInMonthForMonthOf20Days",
     "status": "pass",
-    "time": 0.032477855682373,
+    "time": 0.033705949783325,
     "trace": [],
     "message": "",
     "output": ""
@@ -158,7 +158,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testWorkingDaysInMonthForMonthOf20DaysWithCatholicEaster",
     "status": "pass",
-    "time": 0.087064027786255,
+    "time": 0.036101102828979,
     "trace": [],
     "message": "",
     "output": ""
@@ -171,7 +171,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testWorkingDaysInMonthForMonthOf21Days",
     "status": "pass",
-    "time": 0.036534070968628,
+    "time": 0.034420967102051,
     "trace": [],
     "message": "",
     "output": ""
@@ -184,7 +184,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testWorkingDaysInMonthForMonthOf22Days",
     "status": "pass",
-    "time": 0.039592027664185,
+    "time": 0.042340993881226,
     "trace": [],
     "message": "",
     "output": ""
@@ -197,7 +197,7 @@
     "suite": "RomanianTest",
     "test": "RomanianTest::testWorkingDaysInMonthForMonthOf23Days",
     "status": "pass",
-    "time": 0.04862117767334,
+    "time": 0.03672981262207,
     "trace": [],
     "message": "",
     "output": ""
