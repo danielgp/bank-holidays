@@ -56,7 +56,7 @@ trait Romanian
      */
     protected function readTypeFromJsonFileUniversal($filePath, $fileBaseName)
     {
-        $fName       = __DIR__ . DIRECTORY_SEPARATOR . $filePath . DIRECTORY_SEPARATOR . $fileBaseName . '.min.json';
+        $fName       = $filePath . DIRECTORY_SEPARATOR . $fileBaseName . '.min.json';
         $fJson       = fopen($fName, 'r');
         $jSonContent = fread($fJson, filesize($fName));
         fclose($fJson);
