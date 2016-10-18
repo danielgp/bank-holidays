@@ -54,9 +54,9 @@ trait Romanian
      * @param string $fileBaseName
      * @return mixed
      */
-    private function readTypeFromJsonFile($fileBaseName)
+    protected function readTypeFromJsonFileUniversal($filePath, $fileBaseName)
     {
-        $fName       = __DIR__ . DIRECTORY_SEPARATOR . 'json' . DIRECTORY_SEPARATOR . $fileBaseName . '.min.json';
+        $fName       = __DIR__ . DIRECTORY_SEPARATOR . $filePath . DIRECTORY_SEPARATOR . $fileBaseName . '.min.json';
         $fJson       = fopen($fName, 'r');
         $jSonContent = fread($fJson, filesize($fName));
         fclose($fJson);
@@ -147,7 +147,7 @@ trait Romanian
     {
         $givenYear      = $lngDate->format('Y');
         $daying         = [];
-        $statmentsArray = $this->readTypeFromJsonFile('RomanianBankHolidays');
+        $statmentsArray = $this->readTypeFromJsonFileUniversal('json', 'RomanianBankHolidays');
         if (array_key_exists($givenYear, $statmentsArray)) {
             foreach ($statmentsArray[$givenYear] as $value) {
                 $daying[] = strtotime($value);
