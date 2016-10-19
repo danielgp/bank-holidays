@@ -147,7 +147,8 @@ trait Romanian
     {
         $givenYear      = $lngDate->format('Y');
         $daying         = [];
-        $statmentsArray = $this->readTypeFromJsonFileUniversal('json', 'RomanianBankHolidays');
+        $configPath     = __DIR__ . DIRECTORY_SEPARATOR . 'json';
+        $statmentsArray = $this->readTypeFromJsonFileUniversal($configPath, 'RomanianBankHolidays');
         if (array_key_exists($givenYear, $statmentsArray)) {
             foreach ($statmentsArray[$givenYear] as $value) {
                 $daying[] = strtotime($value);
