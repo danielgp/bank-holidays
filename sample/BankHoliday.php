@@ -50,7 +50,10 @@ class BankHoliday
         . '<ul>';
         for ($crtMonth = 1; $crtMonth <= 12; $crtMonth++) {
             $crtDate = \DateTime::createFromFormat('Y-n-j', $refDate->format('Y') . '-' . $crtMonth . '-1');
-            echo '<li>' . $crtDate->format('M Y') . ' = ' . $this->setWorkingDaysInMonth($crtDate) . ' working days</li>';
+            if ($crtDate !== false) {
+                echo '<li>' . $crtDate->format('M Y') . ' = '
+                . $this->setWorkingDaysInMonth($crtDate) . ' working days</li>';
+            }
         }
         echo '</ul>';
     }
