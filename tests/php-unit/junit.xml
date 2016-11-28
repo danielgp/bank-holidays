@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="16" assertions="16" failures="0" errors="0" time="0.125828">
-    <testsuite name="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" tests="16" assertions="16" failures="0" errors="0" time="0.125828">
-      <testcase name="testHolidaysEaster2015CatholicEasterFirstDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="33" assertions="1" time="0.013578"/>
-      <testcase name="testHolidaysEaster2015CatholicEasterSecondDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="41" assertions="1" time="0.008996"/>
-      <testcase name="testHolidaysEaster2015FirstDayOfYear" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="49" assertions="1" time="0.007165"/>
-      <testcase name="testHolidaysEaster2015LastDayOfYear" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="57" assertions="1" time="0.007782"/>
-      <testcase name="testHolidaysEaster2015OrthodoxEasterFirstDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="65" assertions="1" time="0.006985"/>
-      <testcase name="testHolidaysEaster2015OrthodoxEasterSecondDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="73" assertions="1" time="0.006691"/>
-      <testcase name="testHolidaysFixedButWorkingIncluded" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="81" assertions="1" time="0.007939"/>
-      <testcase name="testHolidaysFixedNewIn2017" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="89" assertions="1" time="0.006640"/>
-      <testcase name="testHolidaysInMonthForMonthWithCatholicEaster" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="97" assertions="1" time="0.007437"/>
-      <testcase name="testHolidaysInMonthForMonthWithoutCatholicEaster" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="105" assertions="1" time="0.007207"/>
-      <testcase name="testWorkingDaysInMonthForMonthOf19Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="113" assertions="1" time="0.007666"/>
-      <testcase name="testWorkingDaysInMonthForMonthOf20Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="121" assertions="1" time="0.007251"/>
-      <testcase name="testWorkingDaysInMonthForMonthOf20DaysWithCatholicEaster" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="129" assertions="1" time="0.008391"/>
-      <testcase name="testWorkingDaysInMonthForMonthOf21Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="137" assertions="1" time="0.007303"/>
-      <testcase name="testWorkingDaysInMonthForMonthOf22Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="145" assertions="1" time="0.007803"/>
-      <testcase name="testWorkingDaysInMonthForMonthOf23Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="153" assertions="1" time="0.006994"/>
+  <testsuite name="" tests="16" assertions="16" failures="0" errors="0" time="0.129438">
+    <testsuite name="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" tests="16" assertions="16" failures="0" errors="0" time="0.129438">
+      <testcase name="testHolidaysEaster2015CatholicEasterFirstDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="33" assertions="1" time="0.012418"/>
+      <testcase name="testHolidaysEaster2015CatholicEasterSecondDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="41" assertions="1" time="0.006597"/>
+      <testcase name="testHolidaysEaster2015FirstDayOfYear" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="49" assertions="1" time="0.006638"/>
+      <testcase name="testHolidaysEaster2015LastDayOfYear" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="57" assertions="1" time="0.007834"/>
+      <testcase name="testHolidaysEaster2015OrthodoxEasterFirstDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="65" assertions="1" time="0.006831"/>
+      <testcase name="testHolidaysEaster2015OrthodoxEasterSecondDay" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="73" assertions="1" time="0.007635"/>
+      <testcase name="testHolidaysFixedButWorkingIncluded" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="81" assertions="1" time="0.010437"/>
+      <testcase name="testHolidaysFixedNewIn2017" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="89" assertions="1" time="0.009731"/>
+      <testcase name="testHolidaysInMonthForMonthWithCatholicEaster" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="97" assertions="1" time="0.008552"/>
+      <testcase name="testHolidaysInMonthForMonthWithoutCatholicEaster" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="105" assertions="1" time="0.009009"/>
+      <testcase name="testWorkingDaysInMonthForMonthOf19Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="113" assertions="1" time="0.007272"/>
+      <testcase name="testWorkingDaysInMonthForMonthOf20Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="121" assertions="1" time="0.007368"/>
+      <testcase name="testWorkingDaysInMonthForMonthOf20DaysWithCatholicEaster" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="129" assertions="1" time="0.007139"/>
+      <testcase name="testWorkingDaysInMonthForMonthOf21Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="137" assertions="1" time="0.007629"/>
+      <testcase name="testWorkingDaysInMonthForMonthOf22Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="145" assertions="1" time="0.007145"/>
+      <testcase name="testWorkingDaysInMonthForMonthOf23Days" class="RomanianTest" file="C:\www\Data\GitRepositories\GitHub\danielgp\bank-holidays\tests\php-unit\RomanianTest.php" line="153" assertions="1" time="0.007203"/>
     </testsuite>
   </testsuite>
 </testsuites>

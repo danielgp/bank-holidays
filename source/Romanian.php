@@ -98,7 +98,7 @@ trait Romanian
      */
     private function setHolidaysFixed(\DateTime $lngDate)
     {
-        $daying = [
+        $daying    = [
             mktime(0, 0, 0, 1, 1, $lngDate->format('Y')), // Happy New Year
             mktime(0, 0, 0, 1, 2, $lngDate->format('Y')), // recovering from New Year party
             mktime(0, 0, 0, 5, 1, $lngDate->format('Y')), // May 1st
@@ -106,6 +106,24 @@ trait Romanian
             mktime(0, 0, 0, 12, 25, $lngDate->format('Y')), // Christmas Day
             mktime(0, 0, 0, 12, 26, $lngDate->format('Y')), // Christmas 2nd Day
         ];
+        $newerDays = $this->setHolidaysFixedOnlyNewerYears($lngDate);
+        if (count($newerDays) > 0) {
+            $daying = array_merge($daying, $newerDays);
+            sort($daying);
+        }
+        return $daying;
+    }
+
+    /**
+     * List of all Romanian fixed holidays for newer years
+     * (as the legislation introduced few additional ones along the years, those are managed here)
+     *
+     * @param \DateTime $lngDate
+     * @return array
+     */
+    private function setHolidaysFixedOnlyNewerYears(\DateTime $lngDate)
+    {
+        $daying = [];
         if ($lngDate->format('Y') >= 2009) {
             $daying[] = mktime(0, 0, 0, 8, 15, $lngDate->format('Y')); // St. Marry
             if ($lngDate->format('Y') >= 2012) {
@@ -116,7 +134,6 @@ trait Romanian
                 }
             }
         }
-        sort($daying);
         return $daying;
     }
 
