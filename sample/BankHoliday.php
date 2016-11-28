@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Daniel Popiniuc
+ * Copyright 2016 Daniel Popiniuc
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,15 +38,20 @@ class BankHoliday
 
     public function __construct()
     {
-        $todaysDate       = new \DateTime('now');
-        $thisYearHolidays = $this->setHolidays($todaysDate);
-        echo '<h1>For ' . $todaysDate->format('Y') . ' the Romanian bank holidays are:</h1>'
+        $refDate          = new \DateTime('now');
+        $thisYearHolidays = $this->setHolidays($refDate);
+        echo '<h1>For ' . $refDate->format('Y') . ' the Romanian bank holidays are:</h1>'
         . '<ul>';
         foreach ($thisYearHolidays as $value) {
             echo '<li>' . $value . ' --- ' . date('l, d F Y', $value) . '</li>';
         }
-        echo '</ul>'
-        . '<p>For the month of ' . $todaysDate->format('M Y') . ' the number of working days is: '
-        . $this->setWorkingDaysInMonth($todaysDate) . '<p>';
+        echo '</ul>';
+        echo '<h1>For ' . $refDate->format('Y') . ' the Romanian working days month by month are:</h1>'
+        . '<ul>';
+        for ($crtMonth = 1; $crtMonth <= 12; $crtMonth++) {
+            $crtDate = \DateTime::createFromFormat('Y-n-j', $refDate->format('Y') . '-' . $crtMonth . '-1');
+            echo '<li>' . $crtDate->format('M Y') . ' = ' . $this->setWorkingDaysInMonth($crtDate) . ' working days</li>';
+        }
+        echo '</ul>';
     }
 }
