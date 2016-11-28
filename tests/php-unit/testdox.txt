@@ -1,11 +1,12 @@
 Romanian
- [x] Holidays fixed but working included
  [x] Holidays easter 2015 catholic easter first day
  [x] Holidays easter 2015 catholic easter second day
  [x] Holidays easter 2015 first day of year
  [x] Holidays easter 2015 last day of year
  [x] Holidays easter 2015 orthodox easter first day
  [x] Holidays easter 2015 orthodox easter second day
+ [x] Holidays fixed but working included
+ [x] Holidays fixed new in 2017
  [x] Holidays in month for month with catholic easter
  [x] Holidays in month for month without catholic easter
  [x] Working days in month for month of 19 days

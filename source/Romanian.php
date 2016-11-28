@@ -98,20 +98,23 @@ trait Romanian
      */
     private function setHolidaysFixed(\DateTime $lngDate)
     {
-        $givenYear = $lngDate->format('Y');
-        $daying    = [
-            mktime(0, 0, 0, 1, 1, $givenYear), // Happy New Year
-            mktime(0, 0, 0, 1, 2, $givenYear), // recovering from New Year party
-            mktime(0, 0, 0, 5, 1, $givenYear), // May 1st
-            mktime(0, 0, 0, 12, 1, $givenYear), // Romanian National Day
-            mktime(0, 0, 0, 12, 25, $givenYear), // Christmas Day
-            mktime(0, 0, 0, 12, 26, $givenYear), // Christmas 2nd Day
+        $daying = [
+            mktime(0, 0, 0, 1, 1, $lngDate->format('Y')), // Happy New Year
+            mktime(0, 0, 0, 1, 2, $lngDate->format('Y')), // recovering from New Year party
+            mktime(0, 0, 0, 5, 1, $lngDate->format('Y')), // May 1st
+            mktime(0, 0, 0, 12, 1, $lngDate->format('Y')), // Romanian National Day
+            mktime(0, 0, 0, 12, 25, $lngDate->format('Y')), // Christmas Day
+            mktime(0, 0, 0, 12, 26, $lngDate->format('Y')), // Christmas 2nd Day
         ];
-        if ($givenYear >= 2009) {
-            $daying[] = mktime(0, 0, 0, 8, 15, $givenYear); // St. Marry
-        }
-        if ($givenYear >= 2012) {
-            $daying[] = mktime(0, 0, 0, 11, 30, $givenYear); // St. Andrew
+        if ($lngDate->format('Y') >= 2009) {
+            $daying[] = mktime(0, 0, 0, 8, 15, $lngDate->format('Y')); // St. Marry
+            if ($lngDate->format('Y') >= 2012) {
+                $daying[] = mktime(0, 0, 0, 11, 30, $lngDate->format('Y')); // St. Andrew
+                if ($lngDate->format('Y') >= 2017) {
+                    $daying[] = mktime(0, 0, 0, 1, 24, $lngDate->format('Y')); // Union Day
+                    $daying[] = mktime(0, 0, 0, 6, 1, $lngDate->format('Y')); // Child's Day
+                }
+            }
         }
         sort($daying);
         return $daying;
