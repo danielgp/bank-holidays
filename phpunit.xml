@@ -22,29 +22,29 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<phpunit 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.5/phpunit.xsd"
-        backupGlobals="true"
-        backupStaticAttributes="false"
-        bootstrap="tests/php-unit/php-unit--bootstrap.php"
-        cacheTokens="false"
-        colors="true"
-        convertErrorsToExceptions="true"
-        convertNoticesToExceptions="true"
-        convertWarningsToExceptions="true"
-        forceCoversAnnotation="false"
-        mapTestClassNameToCoveredClassName="false"
-        processIsolation="false"
-        stopOnError="false"
-        stopOnFailure="false"
-        stopOnIncomplete="false"
-        stopOnSkipped="false"
-        stopOnRisky="false"
-        timeoutForSmallTests="1"
-        timeoutForMediumTests="10"
-        timeoutForLargeTests="60"
-        verbose="false">
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.6/phpunit.xsd"
+    backupGlobals="true"
+    backupStaticAttributes="false"
+    bootstrap="tests/php-unit/php-unit--bootstrap.php"
+    cacheTokens="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    forceCoversAnnotation="false"
+    mapTestClassNameToCoveredClassName="false"
+    processIsolation="false"
+    stopOnError="false"
+    stopOnFailure="false"
+    stopOnIncomplete="false"
+    stopOnSkipped="false"
+    stopOnRisky="false"
+    timeoutForSmallTests="1"
+    timeoutForMediumTests="10"
+    timeoutForLargeTests="60"
+    verbose="false">
     <testsuites>
         <testsuite name="RomanianTest">
             <directory suffix="Test.php">tests/php-unit</directory>
@@ -63,5 +63,5 @@ THE SOFTWARE.
         <log type="junit" target="tests/php-unit/junit.xml" logIncompleteSkipped="false"/>
         <log type="testdox-html" target="tests/php-unit/testdox.html"/>
         <log type="testdox-text" target="tests/php-unit/testdox.txt"/>
-    </logging>  
+    </logging>
 </phpunit>
