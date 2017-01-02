@@ -25,6 +25,11 @@
             "source/Romanian.php"
         ]
     },
+    "autoload-dev": {
+        "classmap": [
+            "source/Romanian.php"
+        ]
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "archive": {
