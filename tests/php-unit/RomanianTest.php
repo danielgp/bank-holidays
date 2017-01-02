@@ -1,5 +1,7 @@
 <?php
 
+namespace danielgp\bank_holidays;
+
 /**
  *
  * The MIT License (MIT)
@@ -28,7 +30,7 @@
 class RomanianTest extends \PHPUnit_Framework_TestCase
 {
 
-    use \danielgp\bank_holidays\Romanian;
+    use Romanian;
 
     public function testHolidaysEaster2015CatholicEasterFirstDay()
     {
