@@ -38,7 +38,13 @@ class BankHoliday
 
     public function __construct()
     {
-        $refDate          = new \DateTime('now');
+        $refDate = new \DateTime('now');
+        $this->listBankHolidays($refDate);
+        $this->listWorkingDaysM2M($refDate);
+    }
+
+    private function listBankHolidays($refDate)
+    {
         $thisYearHolidays = $this->setHolidays($refDate);
         echo '<h1>For ' . $refDate->format('Y') . ' the Romanian bank holidays are:</h1>'
         . '<ul>';
@@ -46,6 +52,10 @@ class BankHoliday
             echo '<li>' . $value . ' --- ' . date('l, d F Y', $value) . '</li>';
         }
         echo '</ul>';
+    }
+
+    private function listWorkingDaysM2M($refDate)
+    {
         echo '<h1>For ' . $refDate->format('Y') . ' the Romanian working days month by month are:</h1>'
         . '<ul>';
         $wkDaysInMonth = [];
@@ -58,6 +68,11 @@ class BankHoliday
             }
         }
         echo '</ul>';
+        $this->overallStatistics($wkDaysInMonth, $refDate);
+    }
+
+    private function overallStatistics($wkDaysInMonth, $refDate)
+    {
         echo '<p>Total # of working days in ' . $refDate->format('Y') . ' is '
         . array_sum($wkDaysInMonth) . ' days</p>';
         echo '<p>Average working days for ' . $refDate->format('Y') . ' is '
