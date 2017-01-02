@@ -48,13 +48,19 @@ class BankHoliday
         echo '</ul>';
         echo '<h1>For ' . $refDate->format('Y') . ' the Romanian working days month by month are:</h1>'
         . '<ul>';
+        $wkDaysInMonth = [];
         for ($crtMonth = 1; $crtMonth <= 12; $crtMonth++) {
             $crtDate = \DateTime::createFromFormat('Y-n-j', $refDate->format('Y') . '-' . $crtMonth . '-1');
             if ($crtDate !== false) {
+                $wkDaysInMonth[] = $this->setWorkingDaysInMonth($crtDate);
                 echo '<li>' . $crtDate->format('M Y') . ' = '
                 . $this->setWorkingDaysInMonth($crtDate) . ' working days</li>';
             }
         }
         echo '</ul>';
+        echo '<p>Total # of working days in ' . $refDate->format('Y') . ' is '
+        . array_sum($wkDaysInMonth) . ' days</p>';
+        echo '<p>Average working days for ' . $refDate->format('Y') . ' is '
+        . round((array_sum($wkDaysInMonth) / count($wkDaysInMonth)), 2) . ' days</p>';
     }
 }
