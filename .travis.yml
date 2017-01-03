@@ -1,6 +1,7 @@
 # The Travis setup:
 # - run testsuite for every PHP version
 language: php
+sudo: required
 php:
   - '7.1'
   - '7.0'
@@ -9,5 +10,6 @@ php:
 install:
   - composer self-update
   - composer update --profile --verbose
+script: phpunit --configuration phpunit.xml
 after_success:
   - bash <(curl -s https://codecov.io/bash)

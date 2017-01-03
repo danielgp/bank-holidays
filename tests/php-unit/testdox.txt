@@ -1,4 +1,4 @@
-Romanian
+danielgp\bank_holidays\Romanian
  [x] Holidays easter 2015 catholic easter first day
  [x] Holidays easter 2015 catholic easter second day
  [x] Holidays easter 2015 first day of year
