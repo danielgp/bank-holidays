@@ -25,7 +25,7 @@ THE SOFTWARE.
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.7/phpunit.xsd"
-    backupGlobals="true"
+    backupGlobals="false"
     backupStaticAttributes="false"
     bootstrap="tests/php-unit/php-unit--bootstrap.php"
     cacheTokens="false"
@@ -53,8 +53,8 @@ THE SOFTWARE.
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">source</directory>
-            <file>source/Romanian.php</file>
+            <directory suffix=".php">././source</directory>
+            <file>././source/Romanian.php</file>
         </whitelist>
     </filter>
     <logging>
