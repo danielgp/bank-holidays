@@ -46,14 +46,12 @@ THE SOFTWARE.
     verbose="false">
     <testsuites>
         <testsuite name="RomanianTest">
-            <directory suffix="Test.php">tests/php-unit</directory>
-            <file>tests/php-unit/RomanianTest.php</file>
+            <directory suffix="Test.php">tests/php-unit/</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">source</directory>
-            <file>source/Romanian.php</file>
+            <directory suffix=".php">source/</directory>
         </whitelist>
     </filter>
     <logging>
@@ -61,7 +59,6 @@ THE SOFTWARE.
         <log type="coverage-clover" target="tests/php-unit/coverage-clover.xml" />
         <log type="coverage-php" target="tests/php-unit/coverage.serialized"/>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-        <log type="json" target="tests/php-unit/coverage.json"/>
         <log type="junit" target="tests/php-unit/junit.xml" logIncompleteSkipped="false"/>
         <log type="tap" target="tests/php-unit/logfile.tap"/>
         <log type="testdox-html" target="tests/php-unit/testdox.html"/>
