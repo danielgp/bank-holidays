@@ -36,7 +36,6 @@ $coverage->setData(array (
       6 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysInMonthForMonthWithCatholicEaster',
       7 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf20DaysWithCatholicEaster',
     ),
-    49 => NULL,
     59 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay',
@@ -132,7 +131,6 @@ $coverage->setData(array (
       14 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf22Days',
       15 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf23Days',
     ),
-    64 => NULL,
     75 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay',
@@ -307,7 +305,6 @@ $coverage->setData(array (
       14 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf22Days',
       15 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf23Days',
     ),
-    90 => NULL,
     102 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay',
@@ -511,7 +508,6 @@ $coverage->setData(array (
       14 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf22Days',
       15 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf23Days',
     ),
-    115 => NULL,
     126 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay',
@@ -641,7 +637,6 @@ $coverage->setData(array (
       14 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf22Days',
       15 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf23Days',
     ),
-    138 => NULL,
     149 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysFixedButWorkingIncluded',
@@ -677,7 +672,6 @@ $coverage->setData(array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysFixedButWorkingIncluded',
       1 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysFixedNewIn2017',
     ),
-    158 => NULL,
     168 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysEaster2015CatholicEasterFirstDay',
@@ -830,7 +824,6 @@ $coverage->setData(array (
       14 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf22Days',
       15 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf23Days',
     ),
-    178 => NULL,
     189 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysInMonthForMonthWithCatholicEaster',
@@ -866,7 +859,6 @@ $coverage->setData(array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysInMonthForMonthWithCatholicEaster',
       1 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysInMonthForMonthWithoutCatholicEaster',
     ),
-    198 => NULL,
     208 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testHolidaysInMonthForMonthWithCatholicEaster',
@@ -911,7 +903,6 @@ $coverage->setData(array (
       6 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf22Days',
       7 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf23Days',
     ),
-    212 => NULL,
     223 => 
     array (
       0 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf19Days',
@@ -975,7 +966,6 @@ $coverage->setData(array (
       4 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf22Days',
       5 => 'danielgp\\bank_holidays\\RomanianTest::testWorkingDaysInMonthForMonthOf23Days',
     ),
-    232 => NULL,
   ),
 ));
 $coverage->setTests(array (
