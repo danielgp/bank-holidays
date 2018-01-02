@@ -28,7 +28,7 @@
 
 namespace danielgp\bank_holidays;
 
-class RomanianTest extends \PHPUnit_Framework_TestCase
+class RomanianTest extends \PHPUnit\Framework\TestCase
 {
 
     use Romanian;
