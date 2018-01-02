@@ -2,7 +2,7 @@
 <!--
 The MIT License
 
-Copyright (c) 2015 Daniel Popiniuc
+Copyright (c) 2017 Daniel Popiniuc
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,8 +24,8 @@ THE SOFTWARE.
 -->
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.7/phpunit.xsd"
-    backupGlobals="false"
+    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.5/phpunit.xsd"
+    backupGlobals="true"
     backupStaticAttributes="false"
     cacheTokens="false"
     colors="true"
@@ -40,6 +40,7 @@ THE SOFTWARE.
     stopOnIncomplete="false"
     stopOnSkipped="false"
     stopOnRisky="false"
+    beStrictAboutTestsThatDoNotTestAnything="false"
     timeoutForSmallTests="1"
     timeoutForMediumTests="10"
     timeoutForLargeTests="60"
@@ -60,7 +61,6 @@ THE SOFTWARE.
         <log type="coverage-php" target="tests/php-unit/coverage.serialized"/>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
         <log type="junit" target="tests/php-unit/junit.xml" logIncompleteSkipped="false"/>
-        <log type="tap" target="tests/php-unit/logfile.tap"/>
         <log type="testdox-html" target="tests/php-unit/testdox.html"/>
         <log type="testdox-text" target="tests/php-unit/testdox.txt"/>
     </logging>
