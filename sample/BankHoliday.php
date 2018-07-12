@@ -36,45 +36,48 @@ class BankHoliday
 
     use Romanian;
 
-    public function __construct() {
+    public function __construct()
+    {
         $refDate = new \DateTime('now');
         $this->listBankHolidays($refDate);
         $this->listWorkingDaysM2M($refDate);
     }
 
-    private function listBankHolidays($refDate) {
+    private function listBankHolidays($refDate)
+    {
         $thisYearHolidays = $this->setHolidays($refDate);
-        echo '<h1>For '.$refDate->format('Y').' the Romanian bank holidays are:</h1>'
-        .'<ul>';
+        echo '<h1>For ' . $refDate->format('Y') . ' the Romanian bank holidays are:</h1>'
+        . '<ul>';
         foreach ($thisYearHolidays as $value) {
-            echo '<li>'.$value.' --- '.date('l, d F Y', $value).'</li>';
+            echo '<li>' . $value . ' --- ' . date('l, d F Y', $value) . '</li>';
         }
         echo '</ul>';
     }
 
-    private function listWorkingDaysM2M($refDate) {
-        echo '<h1>For '.$refDate->format('Y').' the Romanian working days month by month are:</h1>'
-        .'<ul>';
+    private function listWorkingDaysM2M($refDate)
+    {
+        echo '<h1>For ' . $refDate->format('Y') . ' the Romanian working days month by month are:</h1>'
+        . '<ul>';
         $wkDaysInMonth = [];
         for ($crtMonth = 1; $crtMonth <= 12; $crtMonth++) {
-            $crtDate = \DateTime::createFromFormat('Y-n-j', $refDate->format('Y').'-'.$crtMonth.'-1');
+            $crtDate = \DateTime::createFromFormat('Y-n-j', $refDate->format('Y') . '-' . $crtMonth . '-1');
             if ($crtDate !== false) {
                 $wkDaysInMonth[] = $this->setWorkingDaysInMonth($crtDate);
-                echo '<li>'.$crtDate->format('M Y').' = '
-                .$this->setWorkingDaysInMonth($crtDate).' working days</li>';
+                echo '<li>' . $crtDate->format('M Y') . ' = '
+                . $this->setWorkingDaysInMonth($crtDate) . ' working days</li>';
             }
         }
         echo '</ul>';
         $this->overallStatistics($wkDaysInMonth, $refDate);
     }
 
-    private function overallStatistics($wkDaysInMonth, $refDate) {
-        echo '<p>Total # of working days in '.$refDate->format('Y').' is '
-        .array_sum($wkDaysInMonth).' days</p>';
-        echo '<p>Average working days for '.$refDate->format('Y').' is '
-        .round((array_sum($wkDaysInMonth) / count($wkDaysInMonth)), 2).' days'
-        .' or '.round((array_sum($wkDaysInMonth) * 8 / count($wkDaysInMonth)), 2).' hours'
-        .'</p>';
+    private function overallStatistics($wkDaysInMonth, $refDate)
+    {
+        echo '<p>Total # of working days in ' . $refDate->format('Y') . ' is '
+        . array_sum($wkDaysInMonth) . ' days</p>';
+        echo '<p>Average working days for ' . $refDate->format('Y') . ' is '
+        . round((array_sum($wkDaysInMonth) / count($wkDaysInMonth)), 2) . ' days'
+        . ' or ' . round((array_sum($wkDaysInMonth) * 8 / count($wkDaysInMonth)), 2) . ' hours'
+        . '</p>';
     }
-
 }
