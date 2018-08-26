@@ -31,133 +31,105 @@ namespace danielgp\bank_holidays;
 class RomanianTest extends \PHPUnit\Framework\TestCase
 {
 
-    use Romanian;
+    public static function setUpBeforeClass()
+    {
+        require_once str_replace('tests' . DIRECTORY_SEPARATOR . 'php-unit', 'source', __DIR__)
+            . DIRECTORY_SEPARATOR . 'Romanian.php';
+    }
 
     public function testHolidaysEaster2015CatholicEasterFirstDay()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2015-04-01'), true);
-        // Assert
-        $this->assertContains(strtotime('2015-04-05'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertContains(strtotime('2015-04-05'), $mock->setHolidays(new \DateTime('2015-04-01'), true));
     }
 
     public function testHolidaysEaster2015CatholicEasterSecondDay()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2015-04-01'), true);
-        // Assert
-        $this->assertContains(strtotime('2015-04-06'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertContains(strtotime('2015-04-06'), $mock->setHolidays(new \DateTime('2015-04-01'), true));
     }
 
     public function testHolidaysEaster2015FirstDayOfYear()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2015-12-01'));
-        // Assert
-        $this->assertContains(strtotime('2015-01-01'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertContains(strtotime('2015-01-01'), $mock->setHolidays(new \DateTime('2015-12-01')));
     }
 
     public function testHolidaysEaster2015LastDayOfYear()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2015-12-01'));
-        // Assert
-        $this->assertNotContains(strtotime('2015-12-31'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertNotContains(strtotime('2015-12-31'), $mock->setHolidays(new \DateTime('2015-12-01')));
     }
 
     public function testHolidaysEaster2015OrthodoxEasterFirstDay()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2015-04-01'), true);
-        // Assert
-        $this->assertContains(strtotime('2015-04-12'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertContains(strtotime('2015-04-12'), $mock->setHolidays(new \DateTime('2015-04-01'), true));
     }
 
     public function testHolidaysEaster2015OrthodoxEasterSecondDay()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2015-04-01'), true);
-        // Assert
-        $this->assertContains(strtotime('2015-04-13'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertContains(strtotime('2015-04-13'), $mock->setHolidays(new \DateTime('2015-04-01'), true));
     }
 
     public function testHolidaysFixedButWorkingIncluded()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2016-04-01'), true, true);
-        // Assert
-        $this->assertContains(strtotime('2016-02-19'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertContains(strtotime('2016-02-19'), $mock->setHolidays(new \DateTime('2016-04-01'), true, true));
     }
 
     public function testHolidaysFixedNewIn2017()
     {
-        // Arrange
-        $a = $this->setHolidays(new \DateTime('2017-01-24'), true, true);
-        // Assert
-        $this->assertContains(strtotime('2017-01-24'), $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertContains(strtotime('2017-01-24'), $mock->setHolidays(new \DateTime('2017-01-24'), true, true));
     }
 
     public function testHolidaysInMonthForMonthWithCatholicEaster()
     {
-        // Arrange
-        $a = $this->setHolidaysInMonth(new \DateTime('2015-04-01'), true);
-        // Assert
-        $this->assertEquals(4, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(4, $mock->setHolidaysInMonth(new \DateTime('2015-04-01'), true));
     }
 
     public function testHolidaysInMonthForMonthWithoutCatholicEaster()
     {
-        // Arrange
-        $a = $this->setHolidaysInMonth(new \DateTime('2015-04-01'), false);
-        // Assert
-        $this->assertEquals(2, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(2, $mock->setHolidaysInMonth(new \DateTime('2015-04-01'), false));
     }
 
     public function testWorkingDaysInMonthForMonthOf19Days()
     {
-        // Arrange
-        $a = $this->setWorkingDaysInMonth(new \DateTime('2001-12-01'));
-        // Assert
-        $this->assertEquals(19, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(19, $mock->setWorkingDaysInMonth(new \DateTime('2001-12-01')));
     }
 
     public function testWorkingDaysInMonthForMonthOf20Days()
     {
-        // Arrange
-        $a = $this->setWorkingDaysInMonth(new \DateTime('2001-02-01'));
-        // Assert
-        $this->assertEquals(20, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(20, $mock->setWorkingDaysInMonth(new \DateTime('2001-02-01')));
     }
 
     public function testWorkingDaysInMonthForMonthOf20DaysWithCatholicEaster()
     {
-        // Arrange
-        $a = $this->setWorkingDaysInMonth(new \DateTime('2015-04-01'), true);
-        // Assert
-        $this->assertEquals(20, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(20, $mock->setWorkingDaysInMonth(new \DateTime('2015-04-01'), true));
     }
 
     public function testWorkingDaysInMonthForMonthOf21Days()
     {
-        // Arrange
-        $a = $this->setWorkingDaysInMonth(new \DateTime('2006-01-01'));
-        // Assert
-        $this->assertEquals(21, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(21, $mock->setWorkingDaysInMonth(new \DateTime('2006-01-01')));
     }
 
     public function testWorkingDaysInMonthForMonthOf22Days()
     {
-        // Arrange
-        $a = $this->setWorkingDaysInMonth(new \DateTime('2016-09-01'), false);
-        // Assert
-        $this->assertEquals(22, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(22, $mock->setWorkingDaysInMonth(new \DateTime('2016-09-01'), false));
     }
 
     public function testWorkingDaysInMonthForMonthOf23Days()
     {
-        // Arrange
-        $a = $this->setWorkingDaysInMonth(new \DateTime('2015-07-01'));
-        // Assert
-        $this->assertEquals(23, $a);
+        $mock = $this->getMockForTrait(Romanian::class);
+        $this->assertEquals(23, $mock->setWorkingDaysInMonth(new \DateTime('2015-07-01')));
     }
 }
