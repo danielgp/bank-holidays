@@ -70,7 +70,7 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return array
      */
-    protected function setHolidays(\DateTime $lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false)
+    public function setHolidays(\DateTime $lngDate, $inclCatholicEaster = false, $inclWorkingHolidays = false)
     {
         $givenYear = $lngDate->format('Y');
         $daying    = array_merge($this->setHolidaysOrthodoxEaster($lngDate), $this->setHolidaysFixed($lngDate));
@@ -184,7 +184,7 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setHolidaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false)
+    public function setHolidaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false)
     {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
@@ -218,7 +218,7 @@ trait Romanian
      * @param boolean $inclCatholicEaster
      * @return int
      */
-    protected function setWorkingDaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false)
+    public function setWorkingDaysInMonth(\DateTime $lngDate, $inclCatholicEaster = false)
     {
         $holidaysInGivenYear = $this->setHolidays($lngDate, $inclCatholicEaster);
         $thisMonthDayArray   = $this->setMonthAllDaysIntoArray($lngDate);
