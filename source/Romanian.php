@@ -43,9 +43,8 @@ trait Romanian
      */
     private function getEasterDatetime($year)
     {
-        $base = new \DateTime("$year-03-21");
-        $days = easter_days($year);
-        return $base->add(new \DateInterval("P{$days}D"));
+        $base = new \DateTime($year . '-03-21');
+        return $base->add(new \DateInterval('P{' . $easter_days($year) . '}D'));
     }
 
     /**
