@@ -1,5 +1,17 @@
-# holidays-romania
+Holidays-Romania
+==================
+
+## What is this repository for? ##
+
 Usefull functions to return list of all bank holidays per year and month plus working days in month
+
+
+## Who do I talk to? ##
+
+Repository owner is: [Daniel Popiniuc](mailto:daniel.popiniuc@honeywell.com)
+
+
+## References ##
 
 Packagist statistics by poser.pugx.org
 [![Latest Stable Version](https://poser.pugx.org/danielgp/bank-holidays/v/stable)](https://packagist.org/packages/danielgp/bank-holidays)
