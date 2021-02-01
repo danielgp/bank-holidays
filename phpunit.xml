@@ -41,8 +41,8 @@ THE SOFTWARE.
     stopOnError="false"
     stopOnFailure="false"
     stopOnIncomplete="false"
-    stopOnSkipped="false"
     stopOnRisky="false"
+    stopOnSkipped="false"
     timeoutForSmallTests="1"
     timeoutForMediumTests="10"
     timeoutForLargeTests="60"
@@ -60,7 +60,7 @@ THE SOFTWARE.
     <logging>
         <log type="coverage-html" target="results/php-unit/coverage-html"/>
         <log type="coverage-clover" target="results/php-unit/coverage-clover.xml" />
-        <log type="coverage-php" target="results/php-unit/coverage-serialized" />
+        <log type="coverage-php" target="results/php-unit/coverage-serialized.php" />
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
         <log type="junit" target="results/php-unit/junit.xml"/>
         <log type="testdox-html" target="results/php-unit/testdox.html"/>

@@ -4,7 +4,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2015 Daniel Popiniuc
+ * Copyright (c) 2015 - 2021 Daniel Popiniuc
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -149,9 +149,9 @@ trait Romanian
         $givenYear = $lngDate->format('Y');
         if ($givenYear >= 2015) {
             $daying[] = mktime(0, 0, 0, 1, 24, $givenYear); // Unirea Principatelor Romane
-        }
-        if ($givenYear >= 2016) {
-            $daying[] = mktime(0, 0, 0, 2, 19, $givenYear); // Constantin Brancusi birthday
+            if ($givenYear >= 2016) {
+                $daying[] = mktime(0, 0, 0, 2, 19, $givenYear); // Constantin Brancusi birthday
+            }
         }
         return $daying;
     }

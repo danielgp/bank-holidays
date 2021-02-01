@@ -2,3 +2,4 @@
 /results/
 /vendor/
 composer.lock
+.idea/
